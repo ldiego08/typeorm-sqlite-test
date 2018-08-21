@@ -1,0 +1,18 @@
+{
+  "name": "typeorm-test",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node app.ts"
+  },
+  "dependencies": {
+    "@types/node": "^10.7.1",
+    "class-validator": "^0.9.1",
+    "reflect-metadata": "^0.1.12",
+    "sqlite3": "^4.0.2",
+    "ts-node": "^7.0.1",
+    "tslib": "^1.9.3",
+    "typeorm": "^0.3.0-alpha.10",
+    "typescript": "^3.0.1"
+  }
+}
