@@ -1,13 +1,13 @@
 import "reflect-metadata";
 
 import { createConnection, Table } from "typeorm";
-import { MarketplaceListing } from "./entities/test-entity";
+import { TestEntity } from "./entities/test-entity";
 
 createConnection({
     type: "sqlite",
     database: "./local.db",
     logging: true,
-    entities: [MarketplaceListing]
+    entities: [TestEntity]
 })
     .then(async connection => {
         const queryRunner = connection.createQueryRunner();
@@ -43,27 +43,27 @@ createConnection({
 
         const entityManager = connection.createEntityManager();
 
-        const listingOne = new MarketplaceListing();
+        const listingOne = new TestEntity();
 
         listingOne.id = 1;
         listingOne.name = "Test Listing 1";
         
-        const listingTwo = new MarketplaceListing();
+        const listingTwo = new TestEntity();
 
         listingTwo.id = 2;
         listingTwo.name = "Test Listing 2";
         
-        const listingThree = new MarketplaceListing();
+        const listingThree = new TestEntity();
 
         listingThree.id = 3;
         listingThree.name = "Test Listing 3";
 
-        const listingFour = new MarketplaceListing();
+        const listingFour = new TestEntity();
 
         listingFour.id = 4;
         listingFour.name = "Test Listing 4";
         
-        const listingFive = new MarketplaceListing();
+        const listingFive = new TestEntity();
 
         listingFive.id = 5;
         listingFive.name = "Test Listing 5";
@@ -74,33 +74,33 @@ createConnection({
             await entityManager.save(listingFour),
             await entityManager.save(listingFive),
             await entityManager.update(
-                MarketplaceListing,
+                TestEntity,
                 { id: 1 },
                 { createdAt: new Date("2018-07-12 12:00:00") }
             );
         await entityManager.update(
-            MarketplaceListing,
+            TestEntity,
             { id: 2 },
             { createdAt: new Date("2018-07-23 12:00:00") }
         );
         await entityManager.update(
-            MarketplaceListing,
+            TestEntity,
             { id: 3 },
             { createdAt: new Date("2018-07-01 12:00:00") }
         );
         await entityManager.update(
-            MarketplaceListing,
+            TestEntity,
             { id: 4 },
             { createdAt: new Date("2018-07-30 12:00:00") }
         );
         await entityManager.update(
-            MarketplaceListing,
+            TestEntity,
             { id: 5 },
             { createdAt: new Date("2018-07-31 12:00:00") }
         );
 
         const query = entityManager
-            .getRepository(MarketplaceListing)
+            .getRepository(TestEntity)
             .createQueryBuilder("ml");
 
         // -- SHOW ALL ENTITIES --

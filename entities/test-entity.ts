@@ -8,7 +8,7 @@ import {
 } from "typeorm";
 
 @Entity("test_entity")
-export class MarketplaceListing {
+export class TestEntity {
   @PrimaryGeneratedColumn({ name: "id" })
   public id: number;
 
